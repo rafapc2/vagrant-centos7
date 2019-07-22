@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="yes" ?>
+<!-- Copyright (c) 1999, 2010, Oracle. All rights reserved. -->
+<!-- Do not modify the contents of this file by hand. -->
+<INVENTORY>
+<VERSION_INFO>
+   <SAVED_WITH>11.1.0.9.0</SAVED_WITH>
+   <MINIMUM_VER>2.1.0.6.0</MINIMUM_VER>
+</VERSION_INFO>
+<HOME_LIST>
+<HOME NAME="OH1822244700" LOC="/home/oracle/Oracle/Middleware/oracle_common" TYPE="O" IDX="1">
+   <REFHOMELIST>
+      <REFHOME LOC="/home/oracle/Oracle/Middleware/Oracle_OSB1"/>
+   </REFHOMELIST>
+</HOME>
+<HOME NAME="OH1360346644" LOC="/home/oracle/Oracle/Middleware/Oracle_OSB1" TYPE="O" IDX="2">
+   <DEPHOMELIST>
+      <DEPHOME LOC="/home/oracle/Oracle/Middleware/oracle_common"/>
+   </DEPHOMELIST>
+</HOME>
+</HOME_LIST>
+<COMPOSITEHOME_LIST>
+</COMPOSITEHOME_LIST>
+</INVENTORY>

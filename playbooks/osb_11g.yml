@@ -1,0 +1,59 @@
+# osb_11g.yml
+- name: crear usuario oracle
+  vars:
+    # created with same centos 7 pylib:
+    # python -c 'import crypt; print crypt.crypt("This is my Password", "$1$Salt$")'
+    userpass: $1$Salt$Y2B7.RGEx7W2T1NibAFuQ1
+  user: name=oracle group=wheel password={{userpass}} state=present
+- name: copiar ant para osb
+  unarchive: src=../src/opt/apache-ant-1.9.9-bin_optimizado.zip dest=/opt owner=oracle group=oracle mode=0775
+#
+- name: copiar jrockit para osb
+  unarchive: src=../src/opt/jrockit-jdk1.6.0_24.tar.gz dest=/opt owner=oracle group=oracle mode=0775
+#
+- name: copiar directorio de CI
+  copy: 
+    src: ../src/opt/CI_Tasks
+    dest: /opt
+    owner: oracle
+    group: oracle
+    mode: u=rw,g=r,o=r
+- name: copiar directorio bea
+  copy: 
+    src: ../src/oracle/bea
+    dest: /home/oracle
+    owner: oracle
+    group: oracle
+    mode: u=rw,g=r,o=r
+- name: copiar directorio oraInventory
+  copy: 
+    src: ../src/oracle/oraInventory
+    dest: /home/oracle
+    owner: oracle
+    group: oracle
+    mode: u=rw,g=r,o=r
+#
+- name: copiar WLS dir para osb
+  unarchive: src=../src/oracle/OracleInstall.tar.gz dest=/home/oracle owner=oracle group=oracle mode=0775
+#
+- name: copiar bash profile
+  copy: 
+    src: ../src/.bash_profile
+    dest: /home/oracle
+    owner: oracle
+    group: oracle
+    mode: u=rw,g=r,o=r
+- name: copiar bash source
+  copy: 
+    src: ../src/.bashrc
+    dest: /home/oracle
+    owner: oracle
+    group: oracle
+    mode: u=rw,g=r,o=r
+- name: copiar script para iniciar eclipse
+  copy: 
+    src: ../src/eclipse.sh
+    dest: /home/oracle/Desktop
+    owner: oracle
+    group: oracle
+    mode: u=rwx,g=r,o=r

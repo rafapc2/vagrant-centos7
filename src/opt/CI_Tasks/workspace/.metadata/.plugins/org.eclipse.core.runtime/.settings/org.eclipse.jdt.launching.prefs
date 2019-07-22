@@ -1,0 +1,3 @@
+#Tue Aug 29 15:34:50 CLT 2017
+eclipse.preferences.version=1
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1504035286822">\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\n<vm id\="1504035286822" javadocURL\="http\://java.sun.com/javase/6/docs/api/" name\="jrockit-jdk1.6.0_24-R28.1.3-4.0.1" path\="/opt/jrockit-jdk1.6.0_24-R28.1.3-4.0.1"/>\n</vmType>\n</vmSettings>\n

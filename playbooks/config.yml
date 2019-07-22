@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: full update de paquetes
+    yum:
+      name: '*'
+      state: latest
+  - name: agregar soporte GUI gnome
+    yum:
+      name: 
+#       - "linux-headers-{{ ansible_kernel }}"
+        - "@^gnome-desktop-environment"
+        - "xorg*"
+      state: present
+      update_cache: true
+  - include_tasks: osb_11g.yml
