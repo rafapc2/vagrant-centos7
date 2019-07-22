@@ -3,7 +3,7 @@ creación de vm centos con vagrant
 
 ejecutar los siguientes pasos
 
-    vagrant init
+    vagrant init (ya no es necesario ya que existe un Vagrantfile)
     vagrant up
 
     vagrant plugin install vagrant-vbguest
@@ -14,3 +14,4 @@ ejecutar los siguientes pasos
     vagrant vbguest --status
     vagrant vbguest --do install
     vagrant restart
+    vagrant provision
