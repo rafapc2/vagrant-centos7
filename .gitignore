@@ -1,2 +1,4 @@
 **/OracleInstall.tar.gz
+**/.vagrant/**
+**/.DS_Store/**
 
