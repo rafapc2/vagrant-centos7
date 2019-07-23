@@ -1,5 +1,5 @@
 # osb_11g.yml
-- name:  groupo oracle
+- name:  agregar grupo oracle
   group: name=oracle state=present
 #
 - name: crear usuario oracle
@@ -8,9 +8,6 @@
     # python -c 'import crypt; print crypt.crypt("This is my Password", "$1$Salt$")'
     userpass: $1$Salt$Y2B7.RGEx7W2T1NibAFuQ1
   user: name=oracle group=wheel groups=oracle password={{userpass}} state=present
-#
-#- name: extender permisos sobre /opt
-#  file: dest=/opt owner=root group=wheel mode=u=rwX,g=rwX,o=rwX recurse=yes
 #  
 - name: copiar ant para osb
   unarchive: src=../src/opt/apache-ant-1.9.9-bin_optimizado.zip dest=/opt owner=oracle group=wheel mode=0776

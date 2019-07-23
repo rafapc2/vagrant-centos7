@@ -1,12 +1,31 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+# define hostname
+VAGRANTFILE_API_VERSION = "2"
+NAME = "centos7-vagrant"
 
+unless Vagrant.has_plugin?("vagrant-vbguest")
+  puts 'Installing vagrant-vbguest Plugin...'
+  system('vagrant plugin install vagrant-vbguest')
+  system('vagrant vbguest --status')
+  system('vagrant vbguest --do install')
+end
+
+unless Vagrant.has_plugin?("vagrant-disksize")
+  puts 'Installing vagrant-disksize Plugin...'
+  system('vagrant plugin install vagrant-disksize')
+end
+ 
+unless Vagrant.has_plugin?("vagrant-reload")
+  puts 'Installing vagrant-reload Plugin...'
+  system('vagrant plugin install vagrant-reload')
+end
 
 Vagrant.configure("2") do |config|
 
   config.vm.box = "centos/7"
   if Vagrant.has_plugin?("vagrant-vbguest") then
-    config.vbguest.auto_update = false
+    config.vbguest.auto_update = true
   end
 
   config.vm.provision "ansible" do |ansible|
@@ -55,11 +74,15 @@ Vagrant.configure("2") do |config|
   
   #   # Customize the amount of memory on the VM:
      vb.memory = "4096"
+     vb.cpus = "2"
    end
+
+   config.vm.hostname = NAME
   #
   # View the documentation for the provider you are using for more
   # information on available options.
-
+  config.vm.provision :reload
+  config.vm.provision "shell", inline: "echo 'Instalacion Finalizada'"
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
